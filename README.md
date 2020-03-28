@@ -1,6 +1,10 @@
 # Wali
 
-the personal finance manager you've been waiting for
+The personal finance manager you've been waiting for
+
+![dashboard-design-inpiration](public/dashboard.png)
+
+_Source: [Halo Lab](https://dribbble.com/shots/6949054-Banking-Dashboard)_
 
 ## Development
 
@@ -23,8 +27,3 @@ the personal finance manager you've been waiting for
 
 1. to trigger a production build, run `now --prod`; or, while on the `master` branch, run `git push`
 2. to trigger a staging build, run `now` or `git push` to a branch
-
-## Publish
-
-1. `npm login`
-2. `npm publish --access public`
