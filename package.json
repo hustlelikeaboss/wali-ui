@@ -1,0 +1,65 @@
+{
+	"name": "@hustlelikeaboss/react-gallery",
+	"version": "1.0.2",
+	"description": "a react component library for building galleries",
+	"license": "MIT",
+	"homepage": "https://react-gallery.now.sh/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hustlelikeaboss/react-gallery.git"
+	},
+	"private": false,
+	"keywords": [
+		"react",
+		"gallery",
+		"react-hooks",
+		"css-grid",
+		"flexbox",
+		"typescript"
+	],
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"start": "react-scripts start",
+		"build-examples": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject",
+		"build": "rimraf dist && NODE_ENV=production npx babel src/lib --out-dir dist --copy-files",
+		"now-dev": "react-scripts start",
+		"now-build": "npm run build-examples"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@emotion/core": "^10.0.21",
+		"@emotion/styled": "^10.0.17",
+		"@types/jest": "^24.0.18",
+		"@types/node": "^12.7.11",
+		"@types/react": "^16.9.5",
+		"@types/react-dom": "^16.9.1",
+		"@types/react-router-dom": "^5.1.0",
+		"@types/unsplash-js": "^5.0.0",
+		"react": "^16.10.2",
+		"react-dom": "^16.10.2",
+		"react-live": "^2.2.1",
+		"react-router-dom": "^5.1.2",
+		"react-scripts": "^3.2.0",
+		"rimraf": "^3.0.0",
+		"typescript": "^3.6.3",
+		"unsplash-js": "^5.0.0"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
