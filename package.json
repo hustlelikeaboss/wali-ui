@@ -24,6 +24,9 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject",
+		"build:styles": "NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/main.css",
+		"prebuild": "npm run build:styles",
+		"prestart": "npm run build:styles",
 		"now-dev": "react-scripts start",
 		"now-build": "npm run build"
 	},
@@ -31,19 +34,22 @@
 		"@babel/cli": "^7.8.4",
 		"@emotion/core": "^10.0.21",
 		"@emotion/styled": "^10.0.17",
+		"@fullhuman/postcss-purgecss": "^2.1.0",
 		"@types/jest": "^24.0.18",
 		"@types/node": "^12.7.11",
 		"@types/react": "^16.9.5",
 		"@types/react-dom": "^16.9.1",
 		"@types/react-router-dom": "^5.1.0",
 		"@types/unsplash-js": "^5.0.0",
-		"node-sass": "^4.13.1",
+		"autoprefixer": "^9.7.5",
+		"postcss-cli": "^7.1.0",
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",
 		"react-live": "^2.2.1",
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "^3.2.0",
 		"rimraf": "^3.0.0",
+		"tailwindcss": "^1.2.0",
 		"typescript": "^3.6.3",
 		"unsplash-js": "^5.0.0"
 	},
@@ -58,5 +64,6 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	}
+	},
+	"dependencies": {}
 }

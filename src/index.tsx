@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import Home from './components/Home';
-import './styles/styles.scss';
+import './styles/main.css';
 
 const App = () => (
 	<div id="app">
