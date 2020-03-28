@@ -1,6 +1,6 @@
 {
-	"short_name": "React Gallery",
-	"name": "React Gallery",
+	"short_name": "Wali App",
+	"name": "Wali: the personal finance manager you've been waiting for",
 	"icons": [
 		{
 			"src": "favicon.ico",

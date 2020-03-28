@@ -1,16 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import './App.css';
-
-import NavBar from './examples/NavBar';
-import Footer from './examples/Footer';
+import Home from './components/Home';
+import './styles/styles.scss';
 
 const App = () => (
 	<div id="app">
-		<NavBar/>
-
-		<Footer />
+		<Home />
 	</div>
 );
 
