@@ -24,8 +24,8 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject",
-		"build:styles": "NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/main.css",
-		"prebuild": "npm run build:styles",
+		"build:styles": "postcss src/styles/tailwind.css -o src/styles/main.css",
+		"prebuild": "NODE_ENV=production npm run build:styles",
 		"prestart": "npm run build:styles",
 		"now-dev": "react-scripts start",
 		"now-build": "npm run build"
