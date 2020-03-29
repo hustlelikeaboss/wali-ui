@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+.card {
+	@apply max-w-sm rounded-lg overflow-hidden shadow-lg;
+}
+
+.chip {
+	@apply inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700;
+}
+
+@tailwind utilities;
