@@ -58,11 +58,11 @@ export default memo(function Analytics() {
 
 				{/* monthly income vs expenses */}
 				<div
-					className={`row-span-5 mb-10 transition-all duration-2000 ease ${activeTab === 1 ||
+					className={`row-span-5 transition-all duration-2000 ease ${activeTab === 1 ||
 						'hidden'}`}
 				>
 					<Line
-						height={350}
+						// height={350}
 						data={{
 							labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 							datasets: [
@@ -123,11 +123,11 @@ export default memo(function Analytics() {
 
 				{/* expenses by category */}
 				<div
-					className={`row-span-5 mb-10 transition-all duration-2000 ease ${activeTab === 2 ||
+					className={`row-span-5 transition-all duration-2000 ease ${activeTab === 2 ||
 						'hidden'}`}
 				>
 					<Pie
-						height={350}
+						// height={350}
 						options={{
 							responsive: true,
 							maintainAspectRatio: false,
