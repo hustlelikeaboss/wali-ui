@@ -5,7 +5,7 @@ const Tab = ({
 	tabIndex,
 	activeTab,
 	label,
-	onClick
+	onClick,
 }: {
 	tabIndex: number;
 	activeTab: number;
@@ -29,21 +29,21 @@ export default memo(function Analytics() {
 	const charts = [
 		{
 			index: 1,
-			title: 'Cash Flow'
+			title: 'Cash Flow',
 		},
 		{
 			index: 2,
-			title: 'Categories'
-		}
+			title: 'Categories',
+		},
 	];
 	const [activeTab, setActiveTab] = useState(1);
 
 	return (
-		<div className="row-span-6">
-			<div className="grid grid-rows-6 grid-flow-row">
+		<div className='flex-1'>
+			<div className='h-full grid grid-rows-6 grid-flow-row gap-0'>
 				{/* tab nav */}
-				<div className="row-span-1">
-					<ul className="flex border-b">
+				<div className='row-span-1'>
+					<ul className='flex border-b'>
 						{charts.map(({ index, title }) => (
 							<Tab
 								key={index}
@@ -58,68 +58,44 @@ export default memo(function Analytics() {
 
 				{/* monthly income vs expenses */}
 				<div
-					className={`row-span-5 transition-all duration-2000 ease ${activeTab ===
-						1 || 'hidden'}`}
+					className={`row-span-5 mb-10 transition-all duration-2000 ease ${activeTab === 1 ||
+						'hidden'}`}
 				>
 					<Line
 						height={350}
 						data={{
-							labels: [
-								'January',
-								'February',
-								'March',
-								'April',
-								'May',
-								'June',
-								'July'
-							],
+							labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 							datasets: [
 								{
 									label: 'Income',
 									fill: false,
 									backgroundColor: '#9ad0f5',
 									borderColor: '#9ad0f5',
-									data: [
-										2500,
-										1800,
-										2600,
-										2500,
-										2350,
-										2800,
-										2000
-									]
+									data: [2500, 1800, 2600, 2500, 2350, 2800, 2000],
 								},
 								{
 									label: 'Expenses',
 									backgroundColor: '#ffb1c1',
 									borderColor: '#ffb1c1',
 									fill: false,
-									data: [
-										1250,
-										2250,
-										1950,
-										2300,
-										2550,
-										2000,
-										2750
-									]
-								}
-							]
+									data: [1250, 2250, 1950, 2300, 2550, 2000, 2750],
+								},
+							],
 						}}
 						options={{
 							responsive: true,
 							maintainAspectRatio: false,
 							title: {
 								display: false,
-								text: 'Monthly Income vs. Expenses'
+								text: 'Monthly Income vs. Expenses',
 							},
 							tooltips: {
 								mode: 'index',
-								intersect: false
+								intersect: false,
 							},
 							hover: {
 								mode: 'nearest',
-								intersect: true
+								intersect: true,
 							},
 							scales: {
 								xAxes: [
@@ -127,28 +103,28 @@ export default memo(function Analytics() {
 										display: true,
 										scaleLabel: {
 											display: true,
-											labelString: 'Month'
-										}
-									}
+											labelString: 'Month',
+										},
+									},
 								],
 								yAxes: [
 									{
 										display: true,
 										scaleLabel: {
 											display: true,
-											labelString: 'Amount($)'
-										}
-									}
-								]
-							}
+											labelString: 'Amount($)',
+										},
+									},
+								],
+							},
 						}}
 					/>
 				</div>
 
 				{/* expenses by category */}
 				<div
-					className={`row-span-5 transition-all duration-2000 ease ${activeTab ===
-						2 || 'hidden'}`}
+					className={`row-span-5 mb-10 transition-all duration-2000 ease ${activeTab === 2 ||
+						'hidden'}`}
 				>
 					<Pie
 						height={350}
@@ -157,33 +133,21 @@ export default memo(function Analytics() {
 							maintainAspectRatio: false,
 							title: {
 								display: false,
-								text: 'Expenses by Category'
+								text: 'Expenses by Category',
 							},
 							legend: {
-								position: 'bottom'
-							}
+								position: 'right',
+							},
 						}}
 						data={{
-							labels: [
-								'Grocery',
-								'Restaraunts & Bars',
-								'Shopping'
-							],
+							labels: ['Grocery', 'Restaraunts & Bars', 'Shopping'],
 							datasets: [
 								{
 									data: [300, 50, 100],
-									backgroundColor: [
-										'#ffb1c1',
-										'#9ad0f5',
-										'#FFCE56'
-									],
-									hoverBackgroundColor: [
-										'#ffb1c1',
-										'#9ad0f5',
-										'#FFCE56'
-									]
-								}
-							]
+									backgroundColor: ['#ffb1c1', '#9ad0f5', '#FFCE56'],
+									hoverBackgroundColor: ['#ffb1c1', '#9ad0f5', '#FFCE56'],
+								},
+							],
 						}}
 					/>
 				</div>

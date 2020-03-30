@@ -10,11 +10,13 @@ import Analytics from './Analytics';
 export default memo(function AccountDetails() {
 	const transactions: Transaction[] = data.transactions.transactions;
 	const totalTransactions = data.transactions.total_transactions;
-	const size = 3;
+	const size = 4;
 
 	return (
-		<div className="flex-1 px-5">
-			<div className="grid grid-rows-12 grid-flow-row">
+		<div className='flex-1 px-5'>
+			<div
+				className='flex flex-col h-full'
+			>
 				{/* analytics */}
 				<Analytics />
 
