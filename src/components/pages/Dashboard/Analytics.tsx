@@ -14,7 +14,7 @@ const Tab = ({
 }) => (
 	<li className={'-mb-px mr-1'} onClick={onClick}>
 		<span
-			className={`bg-white inline-block text-sm uppercase tracking-widest cursor-pointer transition-all ease ${
+			className={`bg-white inline-block text-sm uppercase tracking-widest-xl cursor-pointer transition-all ease ${
 				tabIndex === activeTab
 					? 'border-l border-t border-r rounded-t py-2 px-4 text-blue-700'
 					: 'py-2 px-4 text-blue-500 hover:text-blue-800'
@@ -53,13 +53,35 @@ export default memo(function Analytics() {
 								onClick={() => setActiveTab(index)}
 							/>
 						))}
+
+						<div className={'flex-1 -mb-px mr-1 border-b flex justify-end'}>
+							<div className='relative'>
+								<select
+									className='block appearance-none w-full bg-blue-100 border border-gray-200 text-sm text-blue-500 italic tracking-widest py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+									id='grid-state'
+								>
+									<option>This month</option>
+									<option>Past 3 months</option>
+									<option>Past 6 months</option>
+									<option>Past year</option>
+								</select>
+								<div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-blue-400'>
+									<svg
+										className='fill-current h-4 w-4'
+										xmlns='http://www.w3.org/2000/svg'
+										viewBox='0 0 20 20'
+									>
+										<path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />
+									</svg>
+								</div>
+							</div>
+						</div>
 					</ul>
 				</div>
 
 				{/* monthly income vs expenses */}
 				<div
-					className={`row-span-5 transition-all duration-2000 ease ${activeTab === 1 ||
-						'hidden'}`}
+					className={`row-span-5 transition-all duration-2000 ease ${activeTab === 1 || 'hidden'}`}
 				>
 					<Line
 						// height={350}
@@ -123,8 +145,7 @@ export default memo(function Analytics() {
 
 				{/* expenses by category */}
 				<div
-					className={`row-span-5 transition-all duration-2000 ease ${activeTab === 2 ||
-						'hidden'}`}
+					className={`row-span-5 transition-all duration-2000 ease ${activeTab === 2 || 'hidden'}`}
 				>
 					<Pie
 						// height={350}
@@ -136,7 +157,7 @@ export default memo(function Analytics() {
 								text: 'Expenses by Category',
 							},
 							legend: {
-								position: 'right',
+								position: 'bottom',
 							},
 						}}
 						data={{
