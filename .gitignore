@@ -20,3 +20,4 @@ yarn-debug.log*
 yarn-error.log*
 
 .now
+src/assets/styles/main.css
