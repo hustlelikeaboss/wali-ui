@@ -43,6 +43,7 @@
 		"@types/unsplash-js": "^5.0.0",
 		"autoprefixer": "^9.7.5",
 		"chart.js": "^2.9.3",
+		"magic-sdk": "0.1.0-beta.14",
 		"postcss-cli": "^7.1.0",
 		"react": "^16.10.2",
 		"react-chartjs-2": "^2.9.0",
