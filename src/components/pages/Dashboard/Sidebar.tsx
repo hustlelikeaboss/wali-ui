@@ -1,4 +1,5 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
+import { usePlaidLink } from 'react-plaid-link';
 
 import logo from '../../../assets/images/logo.png';
 import avatar from '../../../assets/images/avatar.jpg';
@@ -6,6 +7,35 @@ import Icon from '../../atoms/Icon';
 import Card from '../../molecules/Card';
 
 export default memo(function Sidebar() {
+	const onSuccess = useCallback((token, metadata) => {
+		// send token & accounts to server
+		console.log('token: ', token);
+
+		const { accounts, institution } = metadata;
+		console.log('institution: ', institution);
+		console.log('accounts: ', accounts);
+	}, []);
+
+	const config = {
+		clientName: 'Wali',
+		env: process.env.REACT_APP_PLAID_ENV || '',
+		product: ['auth', 'transactions'],
+		publicKey: process.env.REACT_APP_PLAID_PUBLIC_KEY || '',
+		onSuccess
+	};
+
+	const { open, ready, error } = usePlaidLink(config);
+	useEffect(() => {
+		console.log('ready: ', ready);
+		// TODO: handle error initializing Plaid Link
+		console.log('error: ', error);
+	}, [ready, error]);
+	const addAccount = useCallback(() => {
+		if (ready) {
+			open();
+		}
+	}, [ready, open]);
+
 	return (
 		<div className="shadow flex-initial flex flex-col p-5">
 			{/* header */}
@@ -47,8 +77,13 @@ export default memo(function Sidebar() {
 					/>
 					<Icon
 						icon="add"
-						title="Add an account"
-						onClick={() => console.log('clicked')}
+						title={
+							ready
+								? 'Add an account'
+								: 'Still initializing Plaid Link...'
+						}
+						onClick={addAccount}
+						className={!ready ? 'cursor-not-allowed' : ''}
 					/>
 				</div>
 			</div>
